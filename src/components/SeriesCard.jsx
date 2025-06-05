@@ -1,32 +1,11 @@
 import styles from "./Netflix.module.css";
-import styled from "styled-components";
 
 export const SeriesCard = ({ data }) => {
   const { id, img_url, name, rating, genre, cast, watch_url, description } =
     data;
 
-  const ratingClass = rating >= 8.5 ? styles["super-hit"] : styles.average;
-  const ratingHoverClass =
-    rating >= 8.5 ? styles["super-hit-hover"] : styles["average-hover"];
+  const ratingColor = rating >= 8.5 ? "#85dd94" : "#ffe589";
 
-  const btn_style = {
-    fontSize: "1.6rem",
-    padding: "1.2rem 2.4rem",
-    backgroundColor: `${rating >= 8.5 ? "#7dcea0" : "#f7dc6f"}`,
-    border: "none",
-    color: "#000",
-    cursor: "pointer",
-    fontWeight: "bold",
-  };
-
-  // const Button = styled.button`
-  //   color: green;
-  // `;
-
-  // const Button = styled.button({
-  //   color: "white",
-  //   backgroundColor: "red",
-  // });
   return (
     <li className={styles.card}>
       <div>
@@ -36,7 +15,10 @@ export const SeriesCard = ({ data }) => {
         <h2>Name : {name}</h2>
         <h3 className={styles.rating}>
           rating :
-          <span className={`${styles["rating-score"]} ${ratingClass}`}>
+          <span
+            style={{ backgroundColor: ratingColor }}
+            className={styles["rating-highlight"]}
+          >
             {" "}
             {rating}
           </span>
@@ -49,7 +31,11 @@ export const SeriesCard = ({ data }) => {
         <p>Cast : {cast.join(", ")}</p>
 
         <a href={watch_url} target="_blank">
-          <button style={btn_style} className={ratingHoverClass}>
+          <button
+            className={`${
+              rating >= 8.5 ? styles["super-hit"] : styles["average"]
+            }`}
+          >
             Watch now
           </button>
         </a>
