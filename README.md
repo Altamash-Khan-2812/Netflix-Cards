@@ -2,7 +2,7 @@
 
 A professional and responsive card-based UI showcasing some of the popular series on netflix.
 
-**Live Demo**: Click<a href="https://netflix-cards-ecru.vercel.app/">here</a> to see a live demo
+**Live Demo**: Click <a href="https://netflix-cards-ecru.vercel.app/">here</a> to see a live demo
 
 ## Features
 
